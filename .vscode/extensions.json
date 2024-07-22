@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "usernamehw.errorlens",
+        "esbenp.prettier-vscode",
+        "GraphQL.vscode-graphql",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "shardulm94.trailing-spaces",
+        "GraphQL.vscode-graphql-syntax",
+        "vincaslt.highlight-matching-tag",
+        "christian-kohler.path-intellisense",
+        "meganrogge.template-string-converter"
+    ]
+}
