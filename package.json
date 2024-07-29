@@ -1,26 +1,46 @@
 {
-  "name": "andrei_gurzun_custom_app_mastery",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5"
-  }
+    "name": "andrei_gurzun_custom_app_mastery",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "sh nvmsetup.sh && source secrets.sh gannett-dx-staging && NODE_OPTIONS='--max-http-header-size=80000 --inspect' ENVIRONMENT=staging next dev --experimental-https",
+        "build": "NODE_OPTIONS='--max-http-header-size=80000' next build",
+        "test": "TZ=UTC jest --maxWorkers=50%",
+        "test-specific": "jest --verbose --coverage -t=parseDivisions",
+        "start": "NODE_OPTIONS='--max-http-header-size=80000' next start",
+        "check-for-errors": "eslint src pages && stylelint 'styles/**/*.scss' && echo Everything looks fine",
+        "build:docker": "docker build --rm -t elections -f Dockerfile .",
+        "start:docker": "docker run --env-file=./.env.local --rm -p 3000:3000 elections",
+        "prod-test": "NODE_OPTIONS='--max-http-header-size=80000' cross-env ENVIRONMENT=production node server.js",
+        "start-dev-app": "sh nvmsetup.sh && source secrets.sh gannett-dx-staging && TZ=America/New_York && NODE_OPTIONS='--max-http-header-size=80000 --inspect' ENVIRONMENT=staging node server.js",
+        "start-codegen": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env.local --watch",
+        "dev-start": "concurrently -r -k \"npm:start-dev-app\" \"npm:start-codegen\""
+    },
+    "dependencies": {
+        "next": "14.2.5",
+        "react": "^18",
+        "react-dom": "^18"
+    },
+    "devDependencies": {
+        "@graphql-codegen/cli": "^5.0.2",
+        "@parcel/watcher": "^2.4.1",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@typescript-eslint/eslint-plugin": "^7.17.0",
+        "@typescript-eslint/parser": "^7.17.0",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "^14.2.5",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jest": "^28.6.0",
+        "eslint-plugin-jsx-a11y": "^6.9.0",
+        "eslint-plugin-react": "^7.35.0",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "postcss": "^8",
+        "prettier": "^3.3.3",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    }
 }
