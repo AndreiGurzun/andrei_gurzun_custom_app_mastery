@@ -1,0 +1,13 @@
+@import '@styles/abstracts/variables';
+
+.el_content_wrapper {
+    @include font-size(var(--#{$variable-prefix}body-font-size));
+
+    font-family: $fontUsRegular;
+    font-weight: 400;
+    line-height: var(--#{$variable-prefix}body-line-height);
+    color: $default-gray;
+    text-align: var(--#{$variable-prefix}body-text-align);
+    text-size-adjust: 100%; // 3
+    -webkit-tap-highlight-color: rgba($black, 0); // 4
+}

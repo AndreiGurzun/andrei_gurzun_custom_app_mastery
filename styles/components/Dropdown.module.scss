@@ -1,0 +1,1192 @@
+@import '@styles/abstracts/variables';
+
+.se_dropdown {
+    $drop: &;
+
+    display: inline-block;
+    position: relative;
+
+    @include for-phone-landscape {
+        max-width: rem(170);
+        min-width: rem(160);
+    }
+
+    &_group {
+        @media (max-width: 767px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_wrap {
+        @include space(margin, $bottom: 24);
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        #{$drop} {
+            @include space(margin, $left: 16);
+
+            &:first-of-type {
+                @include space(margin, $left: 0);
+            }
+        }
+
+        &_2 {
+            margin-bottom: rem(-34);
+
+            #{$drop} {
+                &_1 {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+
+        &_3 {
+            @media (max-width: 767px) {
+                margin-left: auto !important;
+            }
+        }
+
+        &_4 {
+            #{$drop} {
+                &_group {
+                    display: flex;
+                }
+            }
+
+            @include for-phone-landscape() {
+                flex-wrap: wrap;
+
+                > div {
+                    &:nth-child(2) {
+                        order: 3;
+                        margin-left: auto !important;
+                    }
+
+                    &:nth-child(3) {
+                        order: 2;
+                    }
+                }
+
+                #{$drop} {
+                    &_group {
+                        flex-grow: 1;
+                    }
+
+                    &_1 {
+                        min-width: rem(130);
+                        margin-bottom: rem(10);
+
+                        &_selector {
+                            min-width: rem(130);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_5 {
+            @include space(margin, $bottom: 24);
+
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            @include for-phone-small-2 {
+                padding-right: rem(16);
+            }
+        }
+
+        &_6 {
+            @extend .se_dropdown_wrap;
+            justify-content: end;
+            gap: rem(16);
+        }
+    }
+
+    &_trigger {
+        flex-grow: 1;
+        text-align: left;
+        white-space: nowrap;
+        max-width: calc(100% - 15px);
+        overflow: hidden;
+    }
+
+    &_selector {
+        @include space(padding, 6, 15, 6, 15);
+
+        display: flex;
+        border: 1px solid $gray-300;
+        font-size: rem(13);
+        line-height: lineHeight(19, 13);
+        color: $default-black;
+        min-width: rem(172);
+        align-items: center;
+        cursor: pointer;
+        background-color: $white;
+        max-width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &_icon {
+        @include space(padding, $left: 10);
+
+        font-size: rem(6);
+        color: $default-blue;
+    }
+
+    &_list {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 9;
+        border: 1px solid $gray-300;
+        max-height: 300px;
+        overflow-y: auto;
+        display: none;
+
+        li {
+            @include space(padding, 6, 15, 6, 15);
+
+            font-size: rem(13);
+            line-height: lineHeight(19, 13);
+            color: $default-black;
+            cursor: pointer;
+            border-bottom: 1px solid $gray-300;
+        }
+
+        &_active {
+            display: block !important;
+        }
+    }
+
+    &_200 {
+        width: rem(200);
+
+        button {
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+
+    &_240 {
+        width: rem(240);
+
+        button {
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+
+    &_110 {
+        @include for-phone-landscape {
+            width: rem(110);
+            min-width: auto;
+            margin-left: auto !important;
+
+            button {
+                @include space(padding, 6, 7, 6, 7);
+
+                width: 100%;
+            }
+        }
+    }
+
+    &_style {
+        &_1 {
+            min-width: rem(200);
+
+            button {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #{$drop}_1 {
+                &_trigger {
+                    width: calc(100% - 15px);
+                    overflow: hidden;
+                }
+            }
+
+            @include for-phone-landscape {
+                width: rem(200);
+                min-width: auto;
+            }
+        }
+
+        &_2 {
+            min-width: rem(110);
+
+            button {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #{$drop}_1 {
+                &_trigger {
+                    width: calc(100% - 15px);
+                    overflow: hidden;
+                }
+            }
+
+            @include for-phone-landscape {
+                width: rem(110);
+                min-width: auto;
+                margin-left: auto !important;
+            }
+        }
+    }
+
+    @include for-phone-landscape {
+        &_wrap {
+            flex-direction: row;
+
+            #{$drop} {
+                @include space(margin, $left: 0);
+
+                &:nth-last-child(n + 2) {
+                    @include space(margin, $bottom: 14);
+                }
+            }
+        }
+
+        &_selector {
+            min-width: 100%;
+        }
+    }
+
+    &_1 {
+        @include space(margin, $bottom: 16);
+
+        display: inline-block;
+        position: relative;
+
+        &_hockey {
+            flex: 1;
+        }
+
+        &_active {
+            .se_dropdown_1_selector {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .se_dropdown_1_list {
+                display: block;
+            }
+        }
+
+        &_selector {
+            @include space(padding, 9, 15, 9, 15);
+
+            display: flex;
+            border: 1px solid $gray-300;
+            border-radius: rem(10);
+            font-size: rem(13);
+            line-height: lineHeight(14, 12);
+            color: $default-black-1;
+            min-width: rem(100);
+            align-items: center;
+            cursor: pointer;
+            background-color: $white;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+
+            #{$drop}_1_label {
+                @include space(padding, $left: 4, $right: 4);
+
+                position: absolute;
+                top: rem(-10);
+                background-color: $white;
+                color: $default-black-1;
+            }
+
+            @include for-phone-landscape {
+                padding-left: rem(10);
+                padding-right: rem(10);
+            }
+        }
+
+        &_list {
+            position: absolute;
+            top: calc(100% - 1px);
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 999998;
+            border: 1px solid $gray-300;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+
+            li {
+                @include space(padding, 6, 15, 6, 15);
+
+                font-size: rem(13);
+                line-height: lineHeight(19, 13);
+                color: $default-black;
+                cursor: pointer;
+                border-bottom: 1px solid $gray-300;
+
+                @include for-phone-landscape {
+                    padding-left: rem(10);
+                    padding-right: rem(10);
+                }
+
+                a {
+                    color: $default-black;
+                    text-decoration: none;
+                }
+            }
+
+            &_active {
+                display: block;
+            }
+
+            &_link {
+                li {
+                    padding: 0;
+
+                    a {
+                        @include space(padding, 6, 15, 6, 15);
+
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &_trigger {
+            flex-grow: 1;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        &_icon {
+            @include space(padding, $left: 10);
+
+            color: $default-blue;
+            font-size: rem(6);
+
+            &_select {
+                position: absolute;
+                right: rem(10);
+                top: 50%;
+                transform: translateY(-50%);
+                padding-left: rem(0);
+                z-index: 1;
+            }
+        }
+
+        &_full {
+            width: 100%;
+        }
+
+        &_select {
+            background-color: transparent;
+            appearance: none;
+            outline: none;
+            padding-right: rem(26);
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &_legality {
+        @include space(margin, $bottom: 16);
+
+        display: inline-block;
+        position: relative;
+        min-width: rem(240);
+
+        &_active {
+            .se_dropdown_legality_selector {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .se_dropdown_legality_list {
+                display: block;
+            }
+        }
+
+        &_selector {
+            @include space(padding, 9, 15, 9, 15);
+
+            display: flex;
+            border: 1px solid $gray-300;
+            border-radius: rem(10);
+            font-size: rem(12);
+            line-height: lineHeight(14, 12);
+            color: $default-black-1;
+            min-width: rem(130);
+            align-items: center;
+            cursor: pointer;
+            background-color: $white;
+            width: 100%;
+        }
+
+        &_list {
+            position: absolute;
+            top: calc(100% - 1px);
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 9;
+            border: 1px solid $gray-300;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+
+            li {
+                @include space(padding, 6, 15, 6, 15);
+
+                font-size: rem(13);
+                line-height: lineHeight(19, 13);
+                color: $default-black;
+                cursor: pointer;
+                border-bottom: 1px solid $gray-300;
+
+                a {
+                    display: block;
+                }
+
+                button {
+                    padding: 0;
+                    margin: 0;
+                    border: 0;
+                    border-radius: 0;
+                    background: transparent;
+                }
+            }
+
+            &_active {
+                display: block;
+            }
+        }
+
+        &_trigger {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        &_icon {
+            @include space(padding, $left: 10);
+
+            color: $default-blue;
+            font-size: rem(6);
+        }
+    }
+
+    &_2 {
+        display: block;
+
+        @media (max-width: 991px) {
+            @include space(margin, $bottom: 24);
+        }
+    }
+
+    &_active {
+        #{$drop}_1_selector {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &_1_mobile {
+        &#{$drop}_active {
+            #{$drop}_1_selector {
+                border-radius: rem(10);
+            }
+        }
+
+        &_hockey {
+            flex: 1;
+        }
+    }
+
+    &_3 {
+        @include space(margin, $bottom: 32);
+
+        width: 100%;
+        max-width: rem(200);
+
+        &_button {
+            width: 100%;
+        }
+
+        &_icon {
+            margin-left: auto;
+        }
+
+        &_second {
+            @include space(margin, $left: 15, $bottom: 32);
+        }
+
+        @include for-phone-landscape {
+            margin-left: rem(16);
+        }
+
+        @include for-phone-small-2 {
+            margin-bottom: 0;
+            max-width: none;
+            margin-left: 0;
+
+            &_wrapper {
+                @include space(padding, 0, 16, 16, 16);
+
+                border-bottom: rem(1) solid $default-gray-19;
+                margin-bottom: rem(20);
+                background-color: $white;
+            }
+
+            &_second {
+                @include space(margin, $top: 15);
+            }
+        }
+    }
+
+    &_4 {
+        background-color: $white;
+        position: relative;
+        display: inline-block;
+        min-width: rem(200);
+        margin-bottom: 0;
+
+        &_wrapper {
+            @include space(margin, $bottom: 40);
+
+            background-color: $white;
+            display: flex;
+            align-items: center;
+        }
+
+        &_text {
+            @include space(margin, $right: 8);
+
+            color: $default-black-1;
+            font-family: $fontUsSemiBold;
+            font-weight: $font-weight-semibold;
+            line-height: lineHeight(18, 16);
+        }
+
+        @include for-phone-landscape {
+            width: 100%;
+            margin-bottom: 0;
+
+            &_wrapper {
+                @include space(padding, $left: 16, $right: 16, $bottom: 16);
+
+                margin-bottom: rem(20);
+            }
+
+            &_text {
+                white-space: nowrap;
+                font-size: rem(14);
+            }
+
+            &_selector {
+                min-width: 100%;
+            }
+        }
+
+        @include for-phone-small-2 {
+            &_wrapper_border {
+                border-bottom: rem(1) solid $default-gray-19;
+                margin-bottom: rem(20);
+            }
+        }
+    }
+
+    &_5 {
+        position: relative;
+
+        &_toggle {
+            @include space(padding, 10.5, 15, 10.5, 15);
+
+            background-color: $white;
+            border: rem(1) solid $default-gray-1;
+            font-size: rem(14);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: rem(224);
+
+            &_icon {
+                @include space(margin, $left: 10);
+
+                font-size: rem(6);
+                display: block;
+            }
+        }
+
+        &_list {
+            &_1,
+            &_2 {
+                list-style-type: none;
+                padding-left: 0;
+                margin-bottom: 0;
+                max-height: rem(420);
+                overflow-y: auto;
+            }
+
+            &_1 {
+                background-color: $white;
+                border: rem(1) solid $default-gray-1;
+                min-width: rem(270);
+                padding-left: rem(12);
+                padding-right: rem(12);
+                position: absolute;
+                top: calc(100% - 1px);
+                right: 0;
+                z-index: 100;
+            }
+
+            &_2 {
+                &_item {
+                    a {
+                        @include space(padding, $top: 8, $bottom: 8, $left: 24);
+
+                        display: block;
+                        font-size: rem(14);
+                        line-height: lineHeight(18, 14);
+                        text-decoration: none;
+                        font-family: $fontUsRegular !important;
+                    }
+                }
+            }
+        }
+
+        &_text {
+            &_1 {
+                color: $default-black-2;
+            }
+
+            &_2 {
+                text-transform: uppercase;
+                font-family: $fontUsBold;
+                font-weight: $font-weight-bold;
+                font-size: rem(14);
+                line-height: lineHeight(44, 14);
+            }
+        }
+
+        &#{$drop}_5_active {
+            #{$drop}_5_toggle {
+                background-color: $default-gray-6;
+
+                &_icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        @include for-phone-landscape {
+            @include space(margin, $bottom: 12);
+
+            &_toggle {
+                width: 100%;
+            }
+
+            &_list_1 {
+                width: 100%;
+            }
+        }
+    }
+
+    &_6 {
+        position: relative;
+        width: 100%;
+
+        &_toggle {
+            @include space(padding, 10.5, 15, 10.5, 15);
+
+            background-color: $white;
+            border: rem(1) solid $default-gray-1;
+            font-size: rem(14);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            &_icon {
+                @include space(margin, $left: 10);
+
+                font-size: rem(6);
+                display: block;
+            }
+        }
+
+        &_list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            background-color: $white;
+            border: rem(1) solid $default-gray-1;
+            padding: rem(8) rem(12);
+            position: absolute;
+            top: calc(100% - 1px);
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            max-height: rem(380);
+            overflow-y: auto;
+
+            &_item {
+                a {
+                    @include space(padding, $top: 8, $bottom: 8);
+
+                    display: block;
+                    font-size: rem(14);
+                    line-height: lineHeight(18, 14);
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &_text {
+            &_1 {
+                color: $default-black-2;
+            }
+        }
+
+        &#{$drop}_6_active {
+            #{$drop}_6_toggle {
+                background-color: $default-gray-6;
+
+                &_icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    &_7 {
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+
+        &_button {
+            background-color: $white;
+            border-radius: rem(5);
+            border: rem(1) solid $default-gray-19;
+            color: $default-black-1;
+            font-size: rem(16);
+            line-height: lineHeight(18, 16);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: rem(14) rem(15);
+            width: 100%;
+
+            &_dropped {
+                @include space(padding, 5, 16, 5, 16);
+                display: block;
+                background-color: $white;
+                width: 100%;
+                border: 0;
+                color: $default-black-1;
+                font-size: rem(16) !important;
+                text-align: left;
+            }
+        }
+
+        &_icon {
+            @include space(margin, $left: 6);
+
+            display: flex;
+            right: rem(15);
+            z-index: 100;
+
+            &::before {
+                font-size: rem(6);
+                color: $default-black-1;
+            }
+        }
+
+        &_list {
+            border-color: $default-gray-19;
+
+            li {
+                font-size: rem(16) !important;
+            }
+
+            &_item {
+                padding: 0 !important;
+
+                a {
+                    @include space(padding, 5, 16, 5, 16);
+                    display: block;
+                }
+            }
+        }
+
+        &#{$drop}_active {
+            #{$drop}_list_active {
+                display: block;
+            }
+
+            #{$drop}_7_button {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+
+        @include for-tablet-max {
+            &_button {
+                padding-top: 0;
+                padding-bottom: 0;
+                min-height: rem(48);
+
+                span {
+                    white-space: break-spaces !important;
+                }
+            }
+
+            &_select {
+                option {
+                    white-space: break-spaces !important;
+                }
+            }
+        }
+
+        @include for-phone-landscape {
+            width: 100%;
+
+            &_button {
+                font-size: rem(14);
+                line-height: lineHeight(18, 14);
+                min-width: auto;
+                width: 100%;
+            }
+
+            &_list li {
+                font-size: rem(14) !important;
+                line-height: lineHeight(18, 14);
+                padding-top: rem(8);
+                padding-bottom: rem(8);
+            }
+
+            &#{$drop}_active {
+                #{$drop}_7_select {
+                    border-bottom-left-radius: rem(5);
+                    border-bottom-right-radius: rem(5);
+                }
+            }
+        }
+    }
+
+    &_8 {
+        font-family: $fontUsRegular;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 0;
+        min-width: rem(158);
+
+        button,
+        select {
+            border-radius: rem(4);
+            font-size: rem(12);
+            line-height: lineHeight(18, 12);
+            padding-top: rem(4);
+            padding-bottom: rem(4);
+        }
+
+        &_icon {
+            color: $default-black-1;
+            font-size: rem(6);
+        }
+
+        &_list {
+            max-height: rem(88);
+        }
+
+        &#{$drop}_8_smaller {
+            min-width: rem(100);
+
+            select {
+                border-radius: rem(4) !important;
+            }
+        }
+
+        @include for-phone-landscape {
+            select {
+                border-radius: rem(4) !important;
+            }
+        }
+    }
+
+    &_9 {
+        min-width: auto;
+        width: rem(162);
+
+        &#{$drop}_active {
+            #{$drop}_9_list {
+                border-color: $default-gray-19;
+                border-radius: rem(10);
+                padding: rem(2);
+                top: calc(100% + rem(5));
+                width: rem(165);
+                right: 0;
+                left: auto;
+
+                &_menu {
+                    display: flex !important;
+                    flex-wrap: wrap;
+                    padding-left: 0;
+                    margin-bottom: rem(4);
+
+                    li {
+                        border-bottom: 0;
+                        cursor: default;
+                        font-family: $fontUsBold;
+                        font-weight: $font-weight-bold;
+                        font-size: rem(14);
+                        line-height: lineHeight(16, 14);
+                        list-style-type: none;
+                        padding: rem(4);
+                        width: 16.66%;
+
+                        button {
+                            background-color: transparent;
+                            border: 0;
+                            color: $default-gray;
+                            padding: rem(4);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_btn_show {
+            border: 0;
+            background-color: transparent;
+            color: $default-gray;
+            font-size: rem(12);
+            line-height: lineHeight(16, 12);
+            padding: 0 rem(8);
+        }
+
+        #{$drop}_1_selector {
+            border-color: $default-gray-19;
+            border-radius: rem(4);
+            min-width: auto;
+            padding-top: rem(14);
+            padding-bottom: rem(14);
+        }
+
+        @include for-phone-landscape {
+            width: rem(80);
+        }
+    }
+
+    &_10 {
+        @include space(margin, $bottom: 0);
+
+        width: 100%;
+        max-width: rem(150);
+        margin-left: auto;
+        font-family: $fontUsRegular;
+        background-color: $white;
+        border-radius: rem(10);
+
+        &_button {
+            width: 100%;
+        }
+
+        &_icon {
+            margin-left: auto;
+        }
+
+        > button {
+            max-width: rem(150) !important;
+        }
+
+        @include for-phone-small-2 {
+            &_wrapper {
+                @include space(padding, 0, 16, 16, 16);
+
+                border-bottom: rem(1) solid $default-gray-19;
+                margin-bottom: rem(20);
+                background-color: $white;
+            }
+
+            &_second {
+                @include space(margin, $top: 15);
+            }
+        }
+    }
+
+    &_12 {
+        @include space(margin, $bottom: 16, $left: 5);
+
+        background-color: $white;
+
+        display: inline-block;
+        position: relative;
+
+        &_hockey {
+            flex: 1;
+        }
+
+        &_active {
+            .se_dropdown_12_selector {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .se_dropdown_12_list {
+                display: block;
+            }
+        }
+
+        &_fixed {
+            min-width: rem(132);
+        }
+
+        &_selector {
+            @include space(padding, 9, 15, 9, 15);
+
+            display: flex;
+            border: 1px solid $gray-300;
+            border-radius: rem(10);
+            font-size: rem(13);
+            line-height: lineHeight(14, 12);
+            color: $default-black-1;
+            min-width: rem(100);
+            align-items: center;
+            cursor: pointer;
+            background-color: $white;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+
+            @include for-phone-landscape {
+                padding-left: rem(10);
+                padding-right: rem(10);
+            }
+        }
+
+        &_list {
+            position: absolute;
+            top: calc(100% - 1px);
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 999998;
+            border: 1px solid $gray-300;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+
+            li {
+                @include space(padding, 6, 15, 6, 15);
+
+                font-size: rem(13);
+                line-height: lineHeight(19, 13);
+                color: $default-black;
+                cursor: pointer;
+                border-bottom: 1px solid $gray-300;
+
+                @include for-phone-landscape {
+                    padding-left: rem(10);
+                    padding-right: rem(10);
+                }
+
+                a {
+                    color: $default-black;
+                    text-decoration: none;
+                }
+            }
+
+            &_active {
+                display: block;
+            }
+
+            &_link {
+                li {
+                    padding: 0;
+
+                    a {
+                        @include space(padding, 6, 15, 6, 15);
+
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &_trigger {
+            flex-grow: 1;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        &_icon {
+            @include space(padding, $left: 10);
+
+            color: $default-blue;
+            font-size: rem(6);
+
+            &_select {
+                position: absolute;
+                right: rem(10);
+                top: 50%;
+                transform: translateY(-50%);
+                padding-left: rem(0);
+                z-index: 1;
+            }
+        }
+
+        &_full {
+            width: 100%;
+        }
+
+        &_select {
+            background-color: transparent;
+            appearance: none;
+            outline: none;
+            padding-right: rem(26);
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+.se_bold {
+    font-weight: 700;
+    font-family: $fontUsBold;
+}
