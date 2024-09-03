@@ -2,8 +2,12 @@
     "name": "andrei_gurzun_custom_app_mastery",
     "version": "0.1.0",
     "private": true,
+    "engines": {
+        "node": "20.9.0",
+        "npm": "10.1.0"
+    },
     "scripts": {
-        "dev": "sh nvmsetup.sh && source secrets.sh gannett-dx-staging && NODE_OPTIONS='--max-http-header-size=80000 --inspect' ENVIRONMENT=staging next dev --experimental-https",
+        "dev": "sh nvmsetup.sh && NODE_OPTIONS='--max-http-header-size=80000 --inspect' ENVIRONMENT=staging next dev",
         "build": "NODE_OPTIONS='--max-http-header-size=80000' next build",
         "test": "TZ=UTC jest --maxWorkers=50%",
         "test-specific": "jest --verbose --coverage -t=parseDivisions",

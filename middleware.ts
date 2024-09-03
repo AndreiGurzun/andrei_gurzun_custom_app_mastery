@@ -1,3 +1,15 @@
+// import { NextRequest, NextResponse } from 'next/server';
+
+// export const config = {
+//     matcher: ['/((?!api|_next/static|_next/image|favicon.ico|images|blocked).*)', '/']
+// };
+
+// export const middleware = (_request: NextRequest) => {
+//     const response = NextResponse.next();
+
+//     return response;
+// };
+
 import { NextRequest, NextResponse } from 'next/server';
 
 import { isBrowserSupported } from '@src/tools/browser';
